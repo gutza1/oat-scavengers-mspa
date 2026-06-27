@@ -1,4 +1,6 @@
-class GameLoader extends Phaser.Scene {
+import Phaser from 'phaser';
+
+export default class GameLoader extends Phaser.Scene {
     constructor() {
 		super({ key: 'GameLoader' });
 	}
@@ -63,7 +65,7 @@ class GameLoader extends Phaser.Scene {
             progressBar.fillStyle(0xffffff, 1);
             progressBar.fillRect(400, 410, 480 * value, 40);
         });
-                    
+
         loader.on('fileprogress', function (file) {
             console.log(file.src);
             loadingText.setText('Loading asset: ' + file.src);
@@ -79,7 +81,7 @@ class GameLoader extends Phaser.Scene {
 
         //example of how to load image
         loader.image('blank_portrait', 'game/images/blank_portrait.png');
-        
+
         //eample of how to load audio
         loader.audio('super_trabant_crisis_sfx', 'game/sfx/super_trabant_crisis_sfx.mp3');
 

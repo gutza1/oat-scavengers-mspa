@@ -1,10 +1,11 @@
-class MainMenu extends Phaser.Scene {
+import Phaser from 'phaser';
+
+export default class MainMenu extends Phaser.Scene {
     constructor() {
         super({ key: 'MainMenu' });
     }
 
     preload() {
-        this.load.scenePlugin('rexuiplugin', 'rexuiplugin.min.js', 'rexUI', 'rexUI');
         this.load.audio('maintheme', 'game/music/maintheme.mp3');
     }
 
@@ -19,7 +20,7 @@ class MainMenu extends Phaser.Scene {
 
         gameState.mainlogo = this.add.image(333, 125, 'mainlogo');
         gameState.mainlogo.setOrigin(0, 0);
-        
+
         const menuButtons = this.rexUI.add.buttons({
             x: 640, y: 375,
             orientation: 'y',
@@ -46,10 +47,10 @@ class MainMenu extends Phaser.Scene {
         const settingsBackground = this.add.rectangle(400, 300, 300, 200, 0x000000, 0.5);
         const closeButton = this.add.text(550, 250, 'Close', { fontSize: '16px', fill: '#fff' }).setInteractive();
         const volumeLabel = this.add.text(325, 320, 'Volume:', { fontSize: '16px', fill: '#fff' });
-    
+
         const currentFormatLabel = gameState.dateFormat === "MM/dd/yyyy" ? "MM/DD/YYYY" : "DD/MM/YYYY";
         const dateFormatLabel = this.add.text(325, 370, `${currentFormatLabel}`, { fontSize: '16px', fill: '#fff' }).setInteractive();
-    
+
         dateFormatLabel.on('pointerdown', () => {
             if (gameState.dateFormat === "MM/dd/yyyy") {
                 gameState.dateFormat = "dd/MM/yyyy";
@@ -59,11 +60,11 @@ class MainMenu extends Phaser.Scene {
                 dateFormatLabel.setText("MM/DD/YYYY");
             }
         });
-    
+
         if (this.sound.volume === undefined) {
             this.sound.volume = 0.7;
         }
-    
+
         const volumeSlider = this.rexUI.add.slider({
             x: 400,
             y: 340,
@@ -80,7 +81,7 @@ class MainMenu extends Phaser.Scene {
                 this.sound.play('maintheme');
             }
         }).layout();
-    
+
         closeButton.on('pointerdown', () => {
             settingsBackground.setVisible(false);
             closeButton.setVisible(false);
