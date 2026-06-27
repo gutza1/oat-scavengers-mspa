@@ -12,6 +12,8 @@ pnpm i
 
 You can start the development server with `pnpm dev`. The address to view the game will show up in the terminal.
 
+Code tests can be run with `pnpm test`. See the [Vitest docs](https://vitest.dev/) for guidance on writing tests. Test files have the extension `.test.ts`, and can be located anywhere in the project.
+
 Code can be formatted and linted using `pnpm format`.
 
 ## Building
