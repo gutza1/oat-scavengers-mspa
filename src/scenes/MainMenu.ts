@@ -1,8 +1,8 @@
 import Phaser from "phaser";
-import Label from "phaser4-rex-plugins/templates/ui/label/Label";
+import type Label from "phaser4-rex-plugins/templates/ui/label/Label";
 
 export default class MainMenu extends Phaser.Scene {
-  settingsOpen: boolean;
+	settingsOpen: boolean;
 
 	constructor() {
 		super({ key: "MainMenu" });
@@ -71,7 +71,9 @@ export default class MainMenu extends Phaser.Scene {
 		});
 
 		const currentFormatLabel =
-			window.gameState.dateFormat === "MM/dd/yyyy" ? "MM/DD/YYYY" : "DD/MM/YYYY";
+			window.gameState.dateFormat === "MM/dd/yyyy"
+				? "MM/DD/YYYY"
+				: "DD/MM/YYYY";
 		const dateFormatLabel = this.add
 			.text(325, 370, `${currentFormatLabel}`, {
 				fontSize: "16px",
@@ -123,7 +125,12 @@ export default class MainMenu extends Phaser.Scene {
 	}
 }
 
-function createMenuButton(scene: Phaser.Scene, width: number, height: number, text: string): Label {
+function createMenuButton(
+	scene: Phaser.Scene,
+	width: number,
+	height: number,
+	text: string,
+): Label {
 	return scene.rexUI.add.label({
 		width: width,
 		height: height,

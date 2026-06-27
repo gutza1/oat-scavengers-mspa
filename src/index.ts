@@ -8,42 +8,42 @@ import MainMenu from "./scenes/MainMenu";
 import UIScene from "./scenes/UIScene";
 
 export type GameState = {
-  gameScene: GameScene;
-  uiScene: UIScene;
+	gameScene: GameScene;
+	uiScene: UIScene;
 
-  // Images
-  mainlogo: Phaser.GameObjects.Image;
-  menu_bg: Phaser.GameObjects.Image;
+	// Images
+	mainlogo: Phaser.GameObjects.Image;
+	menu_bg: Phaser.GameObjects.Image;
 
-  // Colours
-  eventForeground: number;
-  superLineColor: number;
-  trackBorder: number;
-  trackFill: number;
-  uiBackground: number;
-  widgetBorder: number;
-  widgetForeground: number;
-  widgetGlow: number;
-  widgetWarning: number;
+	// Colours
+	eventForeground: number;
+	superLineColor: number;
+	trackBorder: number;
+	trackFill: number;
+	uiBackground: number;
+	widgetBorder: number;
+	widgetForeground: number;
+	widgetGlow: number;
+	widgetWarning: number;
 
-  // Text properties
-  adminTextColor: string;
-  engTextColor: string;
-  eventFont: string;
-  eventTextColor: string;
-  greenTextColor: string;
-  lightTextColor: string;
-  opsTextColor: string;
-  sciTextColor: string;
-  widgetTextColor: string;
-  widgetFont: string;
+	// Text properties
+	adminTextColor: string;
+	engTextColor: string;
+	eventFont: string;
+	eventTextColor: string;
+	greenTextColor: string;
+	lightTextColor: string;
+	opsTextColor: string;
+	sciTextColor: string;
+	widgetTextColor: string;
+	widgetFont: string;
 
-  dateFormat: string;
+	dateFormat: string;
 
-  render: {
-    pixelArt: boolean;
-  };
-}
+	render: {
+		pixelArt: boolean;
+	};
+};
 
 window.gameState = {
 	render: {
