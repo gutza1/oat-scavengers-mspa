@@ -11,31 +11,31 @@ export default class GameLoader extends Phaser.Scene {
 	}
 	create() {
 		//define UI color palette
-		gameState.uiBackground = 0x78776f;
-		gameState.trackBorder = 0xffffff;
-		gameState.trackFill = gameState.uiBackground;
-		gameState.widgetBorder = 0x080808;
-		gameState.widgetForeground = 0xf2f2f2;
-		gameState.widgetGlow = 0xffe845;
-		gameState.widgetWarning = 0xff0000;
-		gameState.widgetTextColor = "#080808";
-		gameState.lightTextColor = "#f2f2f2";
-		gameState.widgetFont = "LeagueSpartan";
-		gameState.eventForeground = 0xffffff;
-		gameState.eventTextColor = gameState.widgetTextColor;
-		gameState.eventFont = "Courier New";
-		gameState.superLineColor = 0x14df00;
-		gameState.adminTextColor = "#decc37";
-		gameState.engTextColor = "#c2640a";
-		gameState.sciTextColor = "#00b9ff";
-		gameState.opsTextColor = "#fe0000";
-		gameState.greenTextColor = "#00c000";
+		window.gameState.uiBackground = 0x78776f;
+		window.gameState.trackBorder = 0xffffff;
+		window.gameState.trackFill = window.gameState.uiBackground;
+		window.gameState.widgetBorder = 0x080808;
+		window.gameState.widgetForeground = 0xf2f2f2;
+		window.gameState.widgetGlow = 0xffe845;
+		window.gameState.widgetWarning = 0xff0000;
+		window.gameState.widgetTextColor = "#080808";
+		window.gameState.lightTextColor = "#f2f2f2";
+		window.gameState.widgetFont = "LeagueSpartan";
+		window.gameState.eventForeground = 0xffffff;
+		window.gameState.eventTextColor = window.gameState.widgetTextColor;
+		window.gameState.eventFont = "Courier New";
+		window.gameState.superLineColor = 0x14df00;
+		window.gameState.adminTextColor = "#decc37";
+		window.gameState.engTextColor = "#c2640a";
+		window.gameState.sciTextColor = "#00b9ff";
+		window.gameState.opsTextColor = "#fe0000";
+		window.gameState.greenTextColor = "#00c000";
 
-		gameState.menu_bg = this.add.image(160, 0, "menu_bg");
-		gameState.menu_bg.setOrigin(0, 0);
+		window.gameState.menu_bg = this.add.image(160, 0, "menu_bg");
+		window.gameState.menu_bg.setOrigin(0, 0);
 
-		gameState.mainlogo = this.add.image(333, 125, "mainlogo");
-		gameState.mainlogo.setOrigin(0, 0);
+		window.gameState.mainlogo = this.add.image(333, 125, "mainlogo");
+		window.gameState.mainlogo.setOrigin(0, 0);
 
 		this.sound.play("maintheme", { seek: 22 });
 
@@ -54,21 +54,21 @@ export default class GameLoader extends Phaser.Scene {
 				text: "Loading...",
 				style: {
 					font: "18px LeagueSpartan",
-					fill: "#FFFFFF",
+					color: "#FFFFFF",
 				},
 			})
 			.setResolution(2);
 		loadingText.setOrigin(0.5, 0.5);
-		gameState.dateFormat = "MM/dd/yyyy";
+		window.gameState.dateFormat = "MM/dd/yyyy";
 
-		loader.on("progress", (value) => {
+		loader.on("progress", (value: any) => {
 			console.log(value);
 			progressBar.clear();
 			progressBar.fillStyle(0xffffff, 1);
 			progressBar.fillRect(400, 410, 480 * value, 40);
 		});
 
-		loader.on("fileprogress", (file) => {
+		loader.on("fileprogress", (file: any) => {
 			console.log(file.src);
 			loadingText.setText(`Loading asset: ${file.src}`);
 		});

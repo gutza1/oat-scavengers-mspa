@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-    "build": "vite build",
+		"build": "tsc && vite build",
 		"dev": "vite dev",
 		"format": "biome check --write"
 	},
@@ -25,6 +25,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.1",
+		"typescript": "^6.0.3",
 		"vite": "^8.1.0"
 	}
 }

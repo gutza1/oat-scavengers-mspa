@@ -1,8 +1,12 @@
 import Phaser from "phaser";
+import Label from "phaser4-rex-plugins/templates/ui/label/Label";
 
 export default class MainMenu extends Phaser.Scene {
+  settingsOpen: boolean;
+
 	constructor() {
 		super({ key: "MainMenu" });
+		this.settingsOpen = false;
 	}
 
 	preload() {
@@ -13,13 +17,12 @@ export default class MainMenu extends Phaser.Scene {
 		this.game.sound.stopAll();
 		this.sound.play("maintheme");
 		console.log("MainMenuScene started");
-		this.settingsOpen = false;
 
-		gameState.menu_bg = this.add.image(160, 0, "menu_bg");
-		gameState.menu_bg.setOrigin(0, 0);
+		window.gameState.menu_bg = this.add.image(160, 0, "menu_bg");
+		window.gameState.menu_bg.setOrigin(0, 0);
 
-		gameState.mainlogo = this.add.image(333, 125, "mainlogo");
-		gameState.mainlogo.setOrigin(0, 0);
+		window.gameState.mainlogo = this.add.image(333, 125, "mainlogo");
+		window.gameState.mainlogo.setOrigin(0, 0);
 
 		const menuButtons = this.rexUI.add
 			.buttons({
@@ -36,7 +39,7 @@ export default class MainMenu extends Phaser.Scene {
 
 		menuButtons.on(
 			"button.click",
-			function (_button, index, _pointer, _event) {
+			(_button: any, index: number) => {
 				if (index === 0 && !this.settingsOpen) {
 					this.game.sound.stopAll();
 					this.scene.stop("MainMenu");
@@ -60,28 +63,28 @@ export default class MainMenu extends Phaser.Scene {
 			0.5,
 		);
 		const closeButton = this.add
-			.text(550, 250, "Close", { fontSize: "16px", fill: "#fff" })
+			.text(550, 250, "Close", { fontSize: "16px", color: "#fff" })
 			.setInteractive();
 		const volumeLabel = this.add.text(325, 320, "Volume:", {
 			fontSize: "16px",
-			fill: "#fff",
+			color: "#fff",
 		});
 
 		const currentFormatLabel =
-			gameState.dateFormat === "MM/dd/yyyy" ? "MM/DD/YYYY" : "DD/MM/YYYY";
+			window.gameState.dateFormat === "MM/dd/yyyy" ? "MM/DD/YYYY" : "DD/MM/YYYY";
 		const dateFormatLabel = this.add
 			.text(325, 370, `${currentFormatLabel}`, {
 				fontSize: "16px",
-				fill: "#fff",
+				color: "#fff",
 			})
 			.setInteractive();
 
 		dateFormatLabel.on("pointerdown", () => {
-			if (gameState.dateFormat === "MM/dd/yyyy") {
-				gameState.dateFormat = "dd/MM/yyyy";
+			if (window.gameState.dateFormat === "MM/dd/yyyy") {
+				window.gameState.dateFormat = "dd/MM/yyyy";
 				dateFormatLabel.setText("DD/MM/YYYY");
 			} else {
-				gameState.dateFormat = "MM/dd/yyyy";
+				window.gameState.dateFormat = "MM/dd/yyyy";
 				dateFormatLabel.setText("MM/DD/YYYY");
 			}
 		});
@@ -120,19 +123,20 @@ export default class MainMenu extends Phaser.Scene {
 	}
 }
 
-const createMenuButton = (scene, width, height, text) =>
-	scene.rexUI.add.label({
+function createMenuButton(scene: Phaser.Scene, width: number, height: number, text: string): Label {
+	return scene.rexUI.add.label({
 		width: width,
 		height: height,
 		align: "center",
 		background: scene.add
-			.rectangle(0, 0, width, height, gameState.widgetForeground)
-			.setStrokeStyle(5, gameState.widgetBorder),
+			.rectangle(0, 0, width, height, window.gameState.widgetForeground)
+			.setStrokeStyle(5, window.gameState.widgetBorder),
 		text: scene.add
 			.text(0, 0, text, {
 				fontFamily: "LeagueSpartan",
-				color: gameState.widgetTextColor,
+				color: window.gameState.widgetTextColor,
 				fontSize: 24,
 			})
 			.setResolution(2),
 	});
+}

@@ -6,7 +6,7 @@ export default class GameScene extends Phaser.Scene {
 	}
 
 	create() {
-		gameState.gameScene = this;
+		window.gameState.gameScene = this;
 
 		this.scene.launch("UIScene");
 	}
