@@ -1,28 +1,28 @@
 {
-  "name": "oat-scavengers-mspa",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.4.0",
-      "onFail": "download"
-    }
-  },
-  "type": "module",
-  "dependencies": {
-    "phaser": "^4.2.0",
-    "phaser4-rex-plugins": "^4.0.7"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.5.1",
-    "vite": "^8.1.0"
-  }
+	"name": "oat-scavengers-mspa",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "^11.4.0",
+			"onFail": "download"
+		}
+	},
+	"type": "module",
+	"dependencies": {
+		"phaser": "^4.2.0",
+		"phaser4-rex-plugins": "^4.0.7"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.5.1",
+		"vite": "^8.1.0"
+	}
 }

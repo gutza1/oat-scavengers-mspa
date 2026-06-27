@@ -1,18 +1,15 @@
-import Phaser from 'phaser';
+import Phaser from "phaser";
 
 export default class GameScene extends Phaser.Scene {
-
-    constructor() {
-		super({ key: 'GameScene' });
+	constructor() {
+		super({ key: "GameScene" });
 	}
 
-    create () {
-        gameState.gameScene = this;
+	create() {
+		gameState.gameScene = this;
 
-        this.scene.launch("UIScene");
-    }
+		this.scene.launch("UIScene");
+	}
 
-    update () {
-
-    }
+	update() {}
 }
