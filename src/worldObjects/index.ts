@@ -1,5 +1,11 @@
 import { type Effect, event_effects_map } from "../effects/effects";
 
+export interface ImageData {
+	id: string,
+	x: number,
+	y: number
+}
+
 export interface Interaction {
 	label: string;
 	effects: Effect[];
@@ -7,7 +13,7 @@ export interface Interaction {
 
 type JSONWorldObject = {
 	id: string;
-	image: string;
+	image: ImageData;
 	states: string[];
 	effects: Record<string, Interaction[]>;
 	itemEffects: Record<string, Record<string, Effect[]>>;
@@ -44,7 +50,7 @@ function getUndefinedEffects(
 
 export default class WorldObject {
 	readonly id: string;
-	readonly image: string;
+	readonly image: ImageData;
 	readonly states: string[];
 	private _state: string;
 	readonly effects: StateMap<Interaction[]>;
@@ -52,7 +58,7 @@ export default class WorldObject {
 
 	constructor(
 		id: string,
-		image: string,
+		image: ImageData,
 		states: string[],
 		effects: StateMap<Interaction[]>,
 		itemEffects: Map<string, StateMap<Effect[]>>,
@@ -78,11 +84,15 @@ export default class WorldObject {
 		});
 
 		this.id = id;
-		this.image = image; //stores id string of background image
+		this.image = image; //stores id string and x and y position of background image
 		this.states = states;
 		this._state = states[0];
 		this.effects = effects;
 		this.itemEffects = itemEffects;
+	}
+
+	public get imageData(): ImageData {
+		return this.image;
 	}
 
 	public get currentState(): string {

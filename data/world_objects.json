@@ -1,7 +1,11 @@
 [
 	{
 		"id": "example_world_object",
-		"image": "example_image",
+        "image": {
+            "id": "example_image",
+            "x": 200,
+            "y": 200
+        },
 		"states": ["default"],
 		"effects": {
 			"default": [

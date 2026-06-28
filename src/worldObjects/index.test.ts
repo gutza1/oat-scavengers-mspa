@@ -1,5 +1,12 @@
 import { beforeEach, describe, expect, test } from "vitest";
 import WorldObject from ".";
+import { type ImageData } from "."
+
+const image: ImageData = {
+	id: "test item",
+	x: 200,
+	y: 200
+};
 
 describe("WorldObject", () => {
 	const states = ["default", "secondary"];
@@ -14,14 +21,14 @@ describe("WorldObject", () => {
 		test("creates a WorldObject", () => {
 			const worldObject = new WorldObject(
 				"test id",
-				"test image",
+				image,
 				states,
 				effects,
 				itemEffects,
 			);
 
 			expect(worldObject.id).toBe("test id");
-			expect(worldObject.image).toBe("test image");
+			expect(worldObject.image).toBe(image);
 			expect(worldObject.states).toStrictEqual(states);
 			expect(worldObject.effects).toStrictEqual(effects);
 			expect(worldObject.itemEffects).toStrictEqual(itemEffects);
@@ -30,7 +37,7 @@ describe("WorldObject", () => {
 		test("fails if the object has no states defined", () => {
 			expect(
 				() =>
-					new WorldObject("test id", "test image", [], effects, itemEffects),
+					new WorldObject("test id", image, [], effects, itemEffects),
 			).toThrow("WorldObject test id has no states defined");
 		});
 
@@ -39,7 +46,7 @@ describe("WorldObject", () => {
 				() =>
 					new WorldObject(
 						"test id",
-						"test image",
+						image,
 						states,
 						new Map(),
 						itemEffects,
@@ -54,7 +61,7 @@ describe("WorldObject", () => {
 				() =>
 					new WorldObject(
 						"test id",
-						"test image",
+						image,
 						states,
 						effects,
 						new Map(Object.entries({ testItem: new Map() })),
@@ -71,7 +78,7 @@ describe("WorldObject", () => {
 		beforeEach(() => {
 			worldObject = new WorldObject(
 				"test id",
-				"test image",
+				image,
 				states,
 				effects,
 				itemEffects,
