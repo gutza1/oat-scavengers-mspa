@@ -3,7 +3,7 @@ import { loadDialogues } from "../dialogues";
 import { loadItems } from "../items";
 import Inventory from "../items/inventory";
 import { loadRooms } from "../rooms";
-import { loadWorldObjects } from "../world_objects";
+import { loadWorldObjects } from "../worldObjects";
 
 export default class GameScene extends Phaser.Scene {
 	constructor() {

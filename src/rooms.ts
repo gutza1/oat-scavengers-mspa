@@ -1,4 +1,4 @@
-import type WorldObject from "./world_objects";
+import type WorldObject from "./worldObjects";
 
 type JSONRoom = {
 	id: string;

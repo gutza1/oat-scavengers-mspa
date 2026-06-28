@@ -10,7 +10,7 @@ import GameLoader from "./scenes/GameLoader";
 import GameScene from "./scenes/GameScene";
 import MainMenu from "./scenes/MainMenu";
 import UIScene from "./scenes/UIScene";
-import type WorldObject from "./world_objects";
+import type WorldObject from "./worldObjects";
 
 export type GameState = {
 	gameScene: GameScene;

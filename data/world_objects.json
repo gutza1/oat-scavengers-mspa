@@ -2,9 +2,9 @@
 	{
 		"id": "example_world_object",
 		"image": "example_image",
-		"state": 0,
-		"effects": [
-			[
+		"states": ["default"],
+		"effects": {
+			"default": [
 				{
 					"label": "Click me!",
 					"effects": [
@@ -15,19 +15,16 @@
 					]
 				}
 			]
-		],
-		"item_effects": [
-			{
-				"item": "example_item",
-				"effects": [
-					[
-						{
-							"id": "playSFX",
-							"args": { "SFXId": "example_sound" }
-						}
-					]
+		},
+		"item_effects": {
+			"example_item": {
+				"default": [
+					{
+						"id": "playSFX",
+						"args": { "SFXId": "example_sound" }
+					}
 				]
 			}
-		]
+		}
 	}
 ]
