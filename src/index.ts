@@ -2,6 +2,12 @@ import Phaser from "phaser";
 import BBCodeTextPlugin from "phaser4-rex-plugins/plugins/bbcodetext-plugin.js";
 import RexUIPlugin from "phaser4-rex-plugins/templates/ui/ui-plugin.js";
 
+import { type Dialogue } from "./dialogues/dialogue";
+import { type Item } from "./items/inventory";
+import Room from "./rooms/room";
+import Inventory from "./items/inventory";
+import WorldObject from "./world_objects/world_object";
+
 import GameLoader from "./scenes/GameLoader";
 import GameScene from "./scenes/GameScene";
 import MainMenu from "./scenes/MainMenu";
@@ -43,6 +49,15 @@ export type GameState = {
 	render: {
 		pixelArt: boolean;
 	};
+
+	// Data holders
+	dialogues: Map<String, Dialogue>
+	items: Map<String, Item>
+	rooms: Map<String, Room>
+	worldObjects: Map<String, WorldObject>
+
+	//Game Variables
+	inventory: Inventory
 };
 
 window.gameState = {

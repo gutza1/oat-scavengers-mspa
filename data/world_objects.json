@@ -1,0 +1,31 @@
+[
+    {
+        "id": "example_world_object",
+        "image": "example_image",
+        "state": 0,
+        "effects": [[
+            {
+                "label": "Click me!",
+                "effects": [
+                    {
+                        "id": "playSFX",
+                        "args": {"SFXId":"example_sound"}
+                    }
+                ]
+            }
+        ]],
+        "item_effects": [
+            {
+                "item": "example_item",
+                "effects": [
+                    [
+                        {
+                            "id": "playSFX",
+                            "args": {"SFXId":"example_sound"}
+                        }
+                    ]
+                ]
+            }
+        ]
+    }
+]

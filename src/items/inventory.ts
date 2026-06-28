@@ -1,5 +1,7 @@
-// TODO: define item type
-type Item = string;
+export interface Item {
+    id: string;
+    image: string;
+}
 
 // TODO: should we be able to have inventories with more than 20 slots? can inventories be resized?
 export default class Inventory {

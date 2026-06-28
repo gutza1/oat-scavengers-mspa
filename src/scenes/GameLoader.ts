@@ -5,9 +5,9 @@ export default class GameLoader extends Phaser.Scene {
 		super({ key: "GameLoader" });
 	}
 	preload() {
-		this.load.image("menu_bg", "game/images/menuscreen.png");
-		this.load.image("mainlogo", "game/images/mainlogo.png");
-		this.load.audio("maintheme", "game/music/maintheme.mp3");
+		//this.load.image("menu_bg", "game/images/menuscreen.png");
+		//this.load.image("mainlogo", "game/images/mainlogo.png");
+		//this.load.audio("maintheme", "game/music/maintheme.mp3");
 	}
 	create() {
 		//define UI color palette
@@ -31,13 +31,11 @@ export default class GameLoader extends Phaser.Scene {
 		window.gameState.opsTextColor = "#fe0000";
 		window.gameState.greenTextColor = "#00c000";
 
-		window.gameState.menu_bg = this.add.image(160, 0, "menu_bg");
-		window.gameState.menu_bg.setOrigin(0, 0);
+		//window.gameState.menu_bg = this.add.image(160, 0, "menu_bg");
+		//window.gameState.menu_bg.setOrigin(0, 0);
 
-		window.gameState.mainlogo = this.add.image(333, 125, "mainlogo");
-		window.gameState.mainlogo.setOrigin(0, 0);
-
-		this.sound.play("maintheme", { seek: 22 });
+		//window.gameState.mainlogo = this.add.image(333, 125, "mainlogo");
+		//window.gameState.mainlogo.setOrigin(0, 0);
 
 		const loader = new Phaser.Loader.LoaderPlugin(this);
 
@@ -79,15 +77,18 @@ export default class GameLoader extends Phaser.Scene {
 		});
 
 		//example of how to load .json
-		loader.json("events", "game/data/events.json");
+		loader.json("dialogues", "game/data/dialogues.json");
+		loader.json("items", "game/data/items.json");
+		loader.json("rooms", "game/data/rooms.json");
+		loader.json("world_objects", "game/data/world_objects.json");
 
 		//example of how to load image
-		loader.image("blank_portrait", "game/images/blank_portrait.png");
+		loader.image("example_image", "game/images/example_image.png");
 
 		//eample of how to load audio
 		loader.audio(
-			"super_trabant_crisis_sfx",
-			"game/sfx/super_trabant_crisis_sfx.mp3",
+			"example_audio",
+			"game/sfx/example_audio.mp3",
 		);
 
 		loader.start();
