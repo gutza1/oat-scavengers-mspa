@@ -2,15 +2,15 @@ import Phaser from "phaser";
 import BBCodeTextPlugin from "phaser4-rex-plugins/plugins/bbcodetext-plugin.js";
 import RexUIPlugin from "phaser4-rex-plugins/templates/ui/ui-plugin.js";
 
-import type { Dialogue } from "./dialogues/dialogue";
+import type { Dialogue } from "./dialogues";
+import type { Item } from "./items";
 import type Inventory from "./items/inventory";
-import type { Item } from "./items/inventory";
-import type Room from "./rooms/room";
+import type Room from "./rooms";
 import GameLoader from "./scenes/GameLoader";
 import GameScene from "./scenes/GameScene";
 import MainMenu from "./scenes/MainMenu";
 import UIScene from "./scenes/UIScene";
-import type WorldObject from "./world_objects/world_object";
+import type WorldObject from "./world_objects";
 
 export type GameState = {
 	gameScene: GameScene;

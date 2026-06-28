@@ -1,8 +1,39 @@
-import { type Effect, event_effects_map } from "../effects/effects";
+import { type Effect, event_effects_map } from "./effects/effects";
 
 export interface Interaction {
 	label: string;
 	effects: Effect[];
+}
+
+type JSONWorldObject = {
+	id: string;
+	image: string;
+	state: number;
+	effects: Interaction[][];
+	itemEffects: {
+		item: string;
+		effects: Effect[][];
+	}[];
+};
+
+export function loadWorldObjects(json: unknown): Map<string, WorldObject> {
+	return new Map(
+		(json as JSONWorldObject[]).map((worldObject) => [
+			worldObject.id,
+			new WorldObject(
+				worldObject.id,
+				worldObject.image,
+				worldObject.state,
+				worldObject.effects,
+				new Map(
+					worldObject.itemEffects.map((itemEffect) => [
+						itemEffect.item,
+						itemEffect.effects,
+					]),
+				),
+			),
+		]),
+	);
 }
 
 export default class WorldObject {
@@ -57,10 +88,8 @@ export default class WorldObject {
 	public interact(interaction_num: number): void {
 		const state_num_effects = this.effects[this.state][interaction_num].effects;
 
-		for (var i = 0; i < state_num_effects.length; i++) {
-			event_effects_map
-				.get(state_num_effects[i].id)
-				?.apply(window.gameState, state_num_effects[i].args);
+		for (const effect of state_num_effects) {
+			event_effects_map.get(effect.id)?.apply(window.gameState, effect.args);
 		}
 	}
 
@@ -68,10 +97,8 @@ export default class WorldObject {
 		const effects_for_item = this.item_effects.get(item_id)?.[this.state];
 
 		if (effects_for_item !== undefined) {
-			for (var i = 0; i < effects_for_item.length; i++) {
-				event_effects_map
-					.get(effects_for_item[i].id)
-					?.apply(window.gameState, effects_for_item[i].args);
+			for (const effect of effects_for_item) {
+				event_effects_map.get(effect.id)?.apply(window.gameState, effect.args);
 			}
 		}
 	}

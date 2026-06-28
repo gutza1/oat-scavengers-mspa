@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, test } from "vitest";
-import Inventory, { type Item } from "./inventory";
+import { Inventory, type Item } from ".";
 
 const item: Item = {
-  id: "test item",
-  image: "test image"
-}
+	id: "test item",
+	image: "test image",
+};
 
 let inventory: Inventory;
 
@@ -73,10 +73,15 @@ describe("addItemToSlot", () => {
 	test("throws a conflict error if the slot specified already contains an item, without overwriting the slot", () => {
 		inventory.addItemToSlot(item, 0);
 
-		expect(() => inventory.addItemToSlot({
-      ...item,
-      id: "other test item"
-    }, 0)).toThrow(
+		expect(() =>
+			inventory.addItemToSlot(
+				{
+					...item,
+					id: "other test item",
+				},
+				0,
+			),
+		).toThrow(
 			"Tried to add item to inventory slot 0 that already contains an item",
 		);
 		expect(inventory.getItemInSlot(0)).toBe(item);
@@ -113,8 +118,8 @@ describe("clearSlot", () => {
 
 describe("swapSlots", () => {
 	test("swaps the items in the given slots", () => {
-    const item1 = { ...item, id: "item 1" }
-    const item2 = { ...item, id: "item 2" }
+		const item1 = { ...item, id: "item 1" };
+		const item2 = { ...item, id: "item 2" };
 
 		inventory.addItemToSlot(item1, 0);
 		inventory.addItemToSlot(item2, 1);
