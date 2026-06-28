@@ -36,7 +36,7 @@ class PhaserWorldObject {
 export default class GameScene extends Phaser.Scene {
 	private _currentRoom:(Room | undefined);
 	private _roomBackground:(Phaser.GameObjects.Image | undefined);
-	private _phaserWorldObjects:PhaserWorldObject[];
+	private _phaserWorldObjects!:PhaserWorldObject[];
 
 	constructor() {
 		super({ key: "GameScene" });
