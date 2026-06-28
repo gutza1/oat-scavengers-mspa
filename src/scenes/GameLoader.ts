@@ -86,10 +86,7 @@ export default class GameLoader extends Phaser.Scene {
 		loader.image("example_image", "game/images/example_image.png");
 
 		//eample of how to load audio
-		loader.audio(
-			"example_audio",
-			"game/sfx/example_audio.mp3",
-		);
+		loader.audio("example_audio", "game/sfx/example_audio.mp3");
 
 		loader.start();
 	}

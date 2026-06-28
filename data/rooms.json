@@ -1,7 +1,7 @@
 [
-    {
-        "id": "example_room",
-        "background": "example_background",
-        "world_objects": []
-    }
+	{
+		"id": "example_room",
+		"background": "example_background",
+		"world_objects": []
+	}
 ]
