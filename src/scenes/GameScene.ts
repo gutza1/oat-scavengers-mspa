@@ -47,11 +47,11 @@ class PhaserWorldObject {
                     orientation: 'y',
                     // subMenuSide: 'right',
 
-                    items: this._worldObject.getStateInteractionLabels(),
+      items: world_object.getStateInteractionLabels().map(l => ({name: l, children: []})),
                     createButtonCallback: (item, i) => {
                         var label = window.gameState.uiScene!.rexUI.add.label({
                             background: window.gameState.uiScene!.add.rectangle(0, 0, 148, 24, window.gameState.widgetForeground).setStrokeStyle(1, window.gameState.widgetBorder),
-                            text: window.gameState.uiScene!.add.text(0, 0, item, {color: window.gameState.widgetTextColor,
+                            text: window.gameState.uiScene!.add.text(0, 0, item.name, {color: window.gameState.widgetTextColor,
                                 fontFamily: window.gameState.eventFont,
                                 fontSize: 22}),
                         });
