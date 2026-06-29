@@ -4,8 +4,8 @@ import type { Item } from ".";
 export default class Inventory {
 	private items: (Item | null)[];
 
-	constructor() {
-		this.items = Object.seal(Array.from(Array(20), () => null));
+	constructor(size:number) {
+		this.items = Object.seal(Array.from(Array(size), () => null));
 	}
 
 	get itemCount(): number {

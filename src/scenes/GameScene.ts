@@ -14,7 +14,7 @@ class PhaserWorldObject {
 		this._worldObject = worldObject;
 		const image_data = worldObject.image;
 		this._image = window.gameState.gameScene?.add.image(image_data.x, image_data.y, image_data.id);
-		this._image?.setInteractive(true);
+		this._image?.setInteractive({useHandCursor:true});
 
 		this._image?.on('pointerup', () => {
             this.onclick();
@@ -29,7 +29,41 @@ class PhaserWorldObject {
 	}
 
 	public onclick(): void {
+		const world_object = this._worldObject
+		if (window.gameState.uiScene!.selectedItem != null) {
+			const phaserItem = window.gameState.uiScene!.selectedItem;
+			const itemObj = phaserItem.inventory_obj.getItemInSlot(phaserItem.inventory_no);
+			if (itemObj != null) {
+				world_object.interactWithItem(itemObj.id);
+			}
+			window.gameState.uiScene!.selectItem(null);
+		}
+		else {
 
+		}
+		var menu = window.gameState.uiScene!.rexUI.add.menu({
+                    x: this._worldObject.image.x,
+                    y: this._worldObject.image.y,
+                    orientation: 'y',
+                    // subMenuSide: 'right',
+            
+                    items: this._worldObject.getStateInteractionLabels(),
+                    createButtonCallback: (item, i) => {
+                        var label = window.gameState.uiScene!.rexUI.add.label({
+                            background: window.gameState.uiScene!.add.rectangle(0, 0, 148, 24, window.gameState.widgetForeground).setStrokeStyle(1, window.gameState.widgetBorder),
+                            text: window.gameState.uiScene!.add.text(0, 0, item, {color: window.gameState.widgetTextColor,
+                                fontFamily: window.gameState.eventFont,
+                                fontSize: 22}),
+                        });
+                        label.setInteractive({
+                            useHandCursor: true
+                        }).on('pointerup', () => {
+							world_object.interact(i);
+                            menu.destroy();
+                        })
+                        return label
+                    },
+                });
 	}
 }
 
@@ -52,7 +86,8 @@ export default class GameScene extends Phaser.Scene {
 			this.cache.json.get("worldObjects"),
 		);
 		window.gameState.rooms = loadRooms(this.cache.json.get("rooms"));
-		window.gameState.inventory = new Inventory();
+		window.gameState.inventory = new Inventory(6);
+		window.gameState.evidence = new Inventory(6);
 
 		this._phaserWorldObjects = [];
 		this._roomBackground = this.add.image(0, 0, ""); //assign blank image

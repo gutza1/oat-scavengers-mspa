@@ -108,6 +108,15 @@ export default class WorldObject {
 		this._state = newState;
 	}
 
+	public getStateInteractionLabels(): string[] {
+		var labels:string[] = [];
+		const current_state = this.effects.get(this._state)!;
+		current_state.forEach((interaction) => {
+			labels.push(interaction.label);
+		})
+		return labels;
+	}
+
 	public interact(interactionNum: number): void {
 		const effectsForState =
 			this.effects.get(this._state)?.[interactionNum].effects ?? [];

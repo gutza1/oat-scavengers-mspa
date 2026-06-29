@@ -57,6 +57,7 @@ export type GameState = {
 
 	//Game Variables
 	inventory: Inventory;
+	evidence: Inventory;
 };
 
 window.gameState = {

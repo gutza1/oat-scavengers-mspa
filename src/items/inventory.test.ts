@@ -9,7 +9,7 @@ const item: Item = {
 let inventory: Inventory;
 
 beforeEach(() => {
-	inventory = new Inventory();
+	inventory = new Inventory(6);
 });
 
 describe("getItemInSlot", () => {
