@@ -122,7 +122,7 @@ export default class WorldObject {
 			this.effects.get(this._state)?.[interactionNum].effects ?? [];
 
 		effectsForState.forEach((effect) => {
-			event_effects_map.get(effect.id)?.apply(window.gameState, effect.args);
+			event_effects_map.get(effect.id)?.apply(window.gameState, [effect.args]);
 		});
 	}
 
@@ -130,7 +130,7 @@ export default class WorldObject {
 		const effectsForItem = this.itemEffects.get(itemId)?.get(this._state) ?? [];
 
 		effectsForItem.forEach((effect) => {
-			event_effects_map.get(effect.id)?.apply(window.gameState, effect.args);
+			event_effects_map.get(effect.id)?.apply(window.gameState, [effect.args]);
 		});
 	}
 }
