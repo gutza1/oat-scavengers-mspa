@@ -92,7 +92,7 @@ export default class GameScene extends Phaser.Scene {
 		this._phaserWorldObjects = [];
 		this._roomBackground = this.add.image(0, 0, ""); //assign blank image
 
-		this.changeRooms("example_room");
+		this.changeRooms("police_room");
 
 		this.scene.launch("UIScene");
 	}
