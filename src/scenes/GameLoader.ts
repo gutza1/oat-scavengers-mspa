@@ -68,21 +68,21 @@ export default class GameLoader extends Phaser.Scene {
 			this.scene.start("MainMenu");
 		});
 
-		loader.json("dialogues", "game/data/dialogues.json");
-		loader.json("items", "game/data/items.json");
-		loader.json("rooms", "game/data/rooms.json");
-		loader.json("world_objects", "game/data/world_objects.json");
+		loader.json("dialogues", "data/dialogues.json");
+		loader.json("items", "data/items.json");
+		loader.json("rooms", "data/rooms.json");
+		loader.json("world_objects", "data/world_objects.json");
 
-		loader.image("menu_bg", "game/images/MENUBG.png");
-		loader.image("logo", "game/images/LOGO.png");
-		loader.image("cloth", "game/images/cloth.png");
-		loader.image("fingerprints", "game/images/fingerprints.png");
-		loader.image("footprints", "game/images/footprints.png");
-		loader.image("goo", "game/images/goo.png");
-		loader.image("gunshot", "game/images/gunshot.png");
-		loader.image("scratches", "game/images/scratches.png");
+		loader.image("menu_bg", "images/MENUBG.png");
+		loader.image("logo", "images/LOGO.png");
+		loader.image("cloth", "images/cloth.png");
+		loader.image("fingerprints", "images/fingerprints.png");
+		loader.image("footprints", "images/footprints.png");
+		loader.image("goo", "images/goo.png");
+		loader.image("gunshot", "images/gunshot.png");
+		loader.image("scratches", "images/scratches.png");
 
-		loader.audio("menu_theme", "game/sfx/menu_theme.mp3");
+		loader.audio("menu_theme", "sfx/menu_theme.mp3");
 
 		loader.start();
 	}
