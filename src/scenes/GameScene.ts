@@ -46,7 +46,7 @@ class PhaserWorldObject {
                     y: this._worldObject.image.y,
                     orientation: 'y',
                     // subMenuSide: 'right',
-            
+
                     items: this._worldObject.getStateInteractionLabels(),
                     createButtonCallback: (item, i) => {
                         var label = window.gameState.uiScene!.rexUI.add.label({
@@ -83,7 +83,7 @@ export default class GameScene extends Phaser.Scene {
 		);
 		window.gameState.items = loadItems(this.cache.json.get("items"));
 		window.gameState.worldObjects = loadWorldObjects(
-			this.cache.json.get("worldObjects"),
+			this.cache.json.get("world_objects"),
 		);
 		window.gameState.rooms = loadRooms(this.cache.json.get("rooms"));
 		window.gameState.inventory = new Inventory(6);
@@ -120,5 +120,5 @@ export default class GameScene extends Phaser.Scene {
 
 	}
 
-	
+
 }

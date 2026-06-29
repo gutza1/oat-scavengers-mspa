@@ -16,7 +16,7 @@ type JSONWorldObject = {
 	image: ImageData;
 	states: string[];
 	effects: Record<string, Interaction[]>;
-	itemEffects: Record<string, Record<string, Effect[]>>;
+	item_effects: Record<string, Record<string, Effect[]>>;
 };
 
 export function loadWorldObjects(json: unknown): Map<string, WorldObject> {
@@ -29,7 +29,7 @@ export function loadWorldObjects(json: unknown): Map<string, WorldObject> {
 				worldObject.states,
 				new Map(Object.entries(worldObject.effects)),
 				new Map(
-					Object.entries(worldObject.itemEffects).map(([item, effects]) => [
+					Object.entries(worldObject.item_effects).map(([item, effects]) => [
 						item,
 						new Map(Object.entries(effects)),
 					]),
