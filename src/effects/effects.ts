@@ -19,6 +19,7 @@ export const event_effects_map: Map<string, Function> = new Map([
 			const item = (args as { item_id: string }).item_id;
             const item_obj = window.gameState.items?.get(item)!;
 			window.gameState.evidence?.addItem(item_obj);
+            console.log(window.gameState.evidence);
 		},
 	],
     [

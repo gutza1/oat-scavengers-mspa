@@ -90,7 +90,7 @@ export default class GameScene extends Phaser.Scene {
 		window.gameState.evidence = new Inventory(6);
 
 		this._phaserWorldObjects = [];
-		this._roomBackground = this.add.image(0, 0, ""); //assign blank image
+		this._roomBackground = this.add.image(0, 0, "").setOrigin(0, 0); //assign blank image
 
 		this.changeRooms("police_room");
 

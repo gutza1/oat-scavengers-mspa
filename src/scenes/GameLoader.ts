@@ -74,6 +74,7 @@ export default class GameLoader extends Phaser.Scene {
 		loader.json("world_objects", "data/world_objects.json");
 
 		loader.image("menu_bg", "images/MENUBG.png");
+		loader.image("room_1", "images/ROOM1.png");
 		loader.image("logo", "images/LOGO.png");
 		loader.image("cloth", "images/cloth.png");
 		loader.image("fingerprints", "images/fingerprints.png");

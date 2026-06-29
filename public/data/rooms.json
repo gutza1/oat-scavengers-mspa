@@ -1,7 +1,7 @@
 [
 	{
 		"id": "police_room",
-		"background": "menu_bg",
+		"background": "room_1",
 		"world_objects": ["cloth", "fingerprints", "goo", "gunshot", "scratches"]
 	}
 ]
