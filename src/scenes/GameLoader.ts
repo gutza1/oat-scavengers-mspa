@@ -24,12 +24,6 @@ export default class GameLoader extends Phaser.Scene {
 		window.gameState.eventForeground = 0xffffff;
 		window.gameState.eventTextColor = window.gameState.widgetTextColor;
 		window.gameState.eventFont = "Courier New";
-		window.gameState.superLineColor = 0x14df00;
-		window.gameState.adminTextColor = "#decc37";
-		window.gameState.engTextColor = "#c2640a";
-		window.gameState.sciTextColor = "#00b9ff";
-		window.gameState.opsTextColor = "#fe0000";
-		window.gameState.greenTextColor = "#00c000";
 
 		//window.gameState.menu_bg = this.add.image(160, 0, "menu_bg");
 		//window.gameState.menu_bg.setOrigin(0, 0);
@@ -51,16 +45,14 @@ export default class GameLoader extends Phaser.Scene {
 				y: 430,
 				text: "Loading...",
 				style: {
-					font: "18px LeagueSpartan",
+					font: "18px Courier New",
 					color: "#FFFFFF",
 				},
 			})
 			.setResolution(2);
 		loadingText.setOrigin(0.5, 0.5);
-		window.gameState.dateFormat = "MM/dd/yyyy";
 
 		loader.on("progress", (value: any) => {
-			console.log(value);
 			progressBar.clear();
 			progressBar.fillStyle(0xffffff, 1);
 			progressBar.fillRect(400, 410, 480 * value, 40);
@@ -76,17 +68,21 @@ export default class GameLoader extends Phaser.Scene {
 			this.scene.start("MainMenu");
 		});
 
-		//example of how to load .json
 		loader.json("dialogues", "game/data/dialogues.json");
 		loader.json("items", "game/data/items.json");
 		loader.json("rooms", "game/data/rooms.json");
 		loader.json("world_objects", "game/data/world_objects.json");
 
-		//example of how to load image
-		loader.image("example_image", "game/images/example_image.png");
+		loader.image("menu_bg", "game/images/MENUBG.png");
+		loader.image("logo", "game/images/LOGO.png");
+		loader.image("cloth", "game/images/cloth.png");
+		loader.image("fingerprints", "game/images/fingerprints.png");
+		loader.image("footprints", "game/images/footprints.png");
+		loader.image("goo", "game/images/goo.png");
+		loader.image("gunshot", "game/images/gunshot.png");
+		loader.image("scratches", "game/images/scratches.png");
 
-		//eample of how to load audio
-		loader.audio("example_audio", "game/sfx/example_audio.mp3");
+		loader.audio("menu_theme", "game/sfx/menu_theme.mp3");
 
 		loader.start();
 	}

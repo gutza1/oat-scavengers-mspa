@@ -1,34 +1,140 @@
 [
 	{
-		"id": "example_world_object",
+		"id": "cloth",
         "image": {
-            "id": "example_image",
-            "x": 200,
-            "y": 200
+            "id": "cloth",
+            "x": 180,
+            "y": 565
         },
 		"states": ["default"],
 		"effects": {
 			"default": [
 				{
-					"label": "Click me!",
+					"label": "Retrieve",
 					"effects": [
 						{
-							"id": "playSFX",
-							"args": { "SFXId": "example_sound" }
+							"id": "pickUpItem",
+							"args": { "item_id": "cloth" }
 						}
 					]
 				}
 			]
 		},
-		"item_effects": {
-			"example_item": {
-				"default": [
-					{
-						"id": "playSFX",
-						"args": { "SFXId": "example_sound" }
-					}
-				]
-			}
-		}
+		"item_effects": {}
+	},
+    {
+		"id": "footprints",
+        "image": {
+            "id": "cloth",
+            "x": 600,
+            "y": 600
+        },
+		"states": ["default"],
+		"effects": {
+			"default": [
+				{
+					"label": "Retrieve",
+					"effects": [
+						{
+							"id": "pickUpItem",
+							"args": { "item_id": "footprints" }
+						}
+					]
+				}
+			]
+		},
+		"item_effects": {}
+	},
+    {
+		"id": "fingerprints",
+        "image": {
+            "id": "fingerprints",
+            "x": 456,
+            "y": 369
+        },
+		"states": ["default"],
+		"effects": {
+			"default": [
+				{
+					"label": "Retrieve",
+					"effects": [
+						{
+							"id": "pickUpItem",
+							"args": { "item_id": "fingerprints" }
+						}
+					]
+				}
+			]
+		},
+		"item_effects": {}
+	},
+    {
+		"id": "goo",
+        "image": {
+            "id": "goo",
+            "x": 552,
+            "y": 349
+        },
+		"states": ["default"],
+		"effects": {
+			"default": [
+				{
+					"label": "Retrieve",
+					"effects": [
+						{
+							"id": "pickUpItem",
+							"args": { "item_id": "goo" }
+						}
+					]
+				}
+			]
+		},
+		"item_effects": {}
+	},
+    {
+		"id": "gunshot",
+        "image": {
+            "id": "gunshot",
+            "x": 1067,
+            "y": 124
+        },
+		"states": ["default"],
+		"effects": {
+			"default": [
+				{
+					"label": "Retrieve",
+					"effects": [
+						{
+							"id": "pickUpItem",
+							"args": { "item_id": "gunshot" }
+						}
+					]
+				}
+			]
+		},
+		"item_effects": {}
+	},
+    {
+		"id": "scratches",
+        "image": {
+            "id": "scratches",
+            "x": 415,
+            "y": 477
+        },
+		"states": ["default"],
+		"effects": {
+			"default": [
+				{
+					"label": "Retrieve",
+					"effects": [
+						{
+							"id": "pickUpItem",
+							"args": { "item_id": "scratches" }
+						}
+					]
+				}
+			]
+		},
+		"item_effects": {}
 	}
 ]

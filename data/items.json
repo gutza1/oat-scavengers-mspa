@@ -1,6 +1,26 @@
 [
+    {
+		"id": "cloth",
+		"image": "cloth"
+	},
+    {
+		"id": "footprints",
+		"image": "footprints"
+	},
+    {
+		"id": "fingerprints",
+		"image": "fingerprints"
+	},
 	{
-		"id": "example_item",
-		"image": "example_image"
+		"id": "goo",
+		"image": "goo"
+	},
+    {
+		"id": "gunshot",
+		"image": "gunshot"
+	},
+    {
+		"id": "scratches",
+		"image": "scratches"
 	}
 ]

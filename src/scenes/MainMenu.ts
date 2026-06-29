@@ -10,28 +10,26 @@ export default class MainMenu extends Phaser.Scene {
 	}
 
 	preload() {
-		this.load.audio("maintheme", "game/music/maintheme.mp3");
+
 	}
 
 	create() {
-		this.game.sound.stopAll();
-		this.sound.play("maintheme");
-		console.log("MainMenuScene started");
+		this.sound.play("menu_theme");
 
 		window.gameState.menu_bg = this.add.image(160, 0, "menu_bg");
 		window.gameState.menu_bg.setOrigin(0, 0);
 
-		window.gameState.mainlogo = this.add.image(333, 125, "mainlogo");
+		window.gameState.mainlogo = this.add.image(333, 125, "logo");
 		window.gameState.mainlogo.setOrigin(0, 0);
 
 		const menuButtons = this.rexUI.add
 			.buttons({
-				x: 640,
-				y: 375,
+				x: 840,
+				y: 400,
 				orientation: "y",
 				buttons: [
 					createMenuButton(this, 200, 50, "Start Game"),
-					createMenuButton(this, 200, 50, "Settings"),
+					//createMenuButton(this, 200, 50, "Settings"),
 				],
 				space: { item: 15 },
 			})
@@ -140,7 +138,7 @@ function createMenuButton(
 			.setStrokeStyle(5, window.gameState.widgetBorder),
 		text: scene.add
 			.text(0, 0, text, {
-				fontFamily: "LeagueSpartan",
+				fontFamily: "Courier New",
 				color: window.gameState.widgetTextColor,
 				fontSize: 24,
 			})

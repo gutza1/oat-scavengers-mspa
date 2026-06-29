@@ -83,6 +83,8 @@ class UIBar {
 
 export default class UIScene extends Phaser.Scene {
 	selectedItem!:(PhaserItem | null);
+	cutsceneBg!:Phaser.GameObjects.Rectangle;
+	cutsceneText!:Phaser.GameObjects.Text;
 
 	constructor() {
 		super({ key: "UIScene" });
@@ -92,6 +94,16 @@ export default class UIScene extends Phaser.Scene {
 		window.gameState.uiScene = this;
 
 		this.selectedItem = null;
+		this.cutsceneBg = this.add.rectangle(0, 0, 1280, 720, 0x000000).setDepth(10);
+		this.cutsceneBg.setInteractive();
+		this.cutsceneText = this.add.text(10, 10, "You are DETECTIVE DIPPERSNIFFER. Inside the humble police office where you stand, lies a dead body. You have no idea how or why it got here, but you are a DETECTIVE, and you will figure it out using your trusty investigation skills. You are currently working with the police to solve this crime. What will you do?\nYou pull out your trusty MAGNIFYING GLASS, to look for clues that might point to the murderer.\nNext, you examine the dead body to determine the cause of the death and search for potential fingerprints. You immediately\nnotice dried blood surrounding a clear gunshot wound. You think to yourself\n\"Could this have been a suicide? A false report?\nNo, that can't be. Why would my first thought even be suicide? Getting shot is certainly not a common occurrence these days...\"", 
+			{color: "#FFFFFF",
+                                fontFamily: window.gameState.eventFont,
+                                fontSize: 22}).setDepth(11);
+		this.cutsceneBg.on('pointerup', () => {
+            	this.cutsceneBg.setVisible(false);
+				this.cutsceneText.setVisible(false);
+       		}, this);
 	}
 
 	update() {}
